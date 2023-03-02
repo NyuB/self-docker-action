@@ -33,7 +33,7 @@ This action is tested for ubuntu-latest. It does not work on windows or macOS ru
         uses: actions/checkout@v3
 
       - name: Build image
-        uses: nyub/self-docker-action@v1.0
+        uses: NyuB/self-docker-action@1.0
         with:
           build-dir: ./images/dev-env # relative to root of repository
           image-name: dev
