@@ -1,0 +1,4 @@
+FROM node:alpine
+WORKDIR /home
+ADD . .
+ENTRYPOINT [ "/bin/sh", "-c" ]

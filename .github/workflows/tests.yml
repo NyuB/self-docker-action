@@ -1,0 +1,30 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build self-contained
+        uses: ./
+        with:
+          build-dir: ./tests/self-contained
+          image-name: self
+          image-tag: contained
+
+      - name: Run self-contained
+        run: docker run --rm self:contained echo ok
+
+      - name: Build without dockerfile in build dir
+        uses: ./
+        with:
+          build-dir: ./tests/without-dockerfile
+          dockerfile-path: ./tests/ExternalDockerfile
+          image-name: without
+          image-tag: dockerfile
+
+      - name: Run without-dockerfile
+        run: docker run --rm without:dockerfile cat bravo.txt
+           

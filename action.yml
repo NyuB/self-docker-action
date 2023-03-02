@@ -1,0 +1,19 @@
+name: 'Self Docker'
+description: 'Build docker image from repo'
+inputs:
+  build-dir:
+    description: 'Docker build dir'
+    required: true
+  dockerfile-path:
+    description: 'Path to Dockerfile for build'
+    required: false
+    default: ''
+  image-name:
+    description: 'Image name'
+    required: true
+  image-tag:
+    description: 'Image tag'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
