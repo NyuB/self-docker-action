@@ -22,6 +22,10 @@ This action aims to normalize the build phase. A secondary goal is to add some v
 + Logging to a custom repository
 + Publishing the built images 
 
+## Supported runners
+
+This action is tested for ubuntu-latest. It does not work on windows or macOS runners.
+
 ## Usage
 ```yaml
     steps:

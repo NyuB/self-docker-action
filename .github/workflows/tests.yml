@@ -2,9 +2,13 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest] # TODO support windows
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout
+      - name: Checkout # Do not forget to checkout your repository ...
         uses: actions/checkout@v3
 
       - name: Build self-contained
