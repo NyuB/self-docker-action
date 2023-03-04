@@ -1,3 +1,3 @@
-FROM node:alpine
+FROM debian:buster-slim
 
 ENTRYPOINT [ "/bin/sh", "-c" ]

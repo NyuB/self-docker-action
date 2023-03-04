@@ -13,7 +13,7 @@ try {
     const dockerFilePath = getOptionalInput("dockerfile-path", path.join(buildDirPath, "Dockerfile"));
     const imageName = core.getInput("image-name");
     const imageTag = core.getInput("image-tag");
-    execSync(`docker build -t "${imageName}:${imageTag}" -f "${dockerFilePath}" "${buildDirPath}"`)
+    execSync(`docker build --platform windows/amd64 -t "${imageName}:${imageTag}" -f "${dockerFilePath}" "${buildDirPath}"`)
 
 } catch(error) {
     core.setFailed(error.message);
