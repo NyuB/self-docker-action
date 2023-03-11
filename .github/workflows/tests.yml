@@ -1,12 +1,8 @@
 on: [push, pull_request]
 
 jobs:
-  test:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest] # TODO support windows
-    runs-on: ${{ matrix.os }}
+  test-linux:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout # Do not forget to checkout your repository ...
         uses: actions/checkout@v3
@@ -31,4 +27,20 @@ jobs:
 
       - name: Run without-dockerfile
         run: docker run --rm without:dockerfile cat bravo.txt
+  
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        uses: ./
+        with:
+          build-dir: ./tests/windows
+          image-name: win
+          image-tag: test
+      - name: Run windows container
+        run: docker run --rm win:test echo ok
+      
+          
            

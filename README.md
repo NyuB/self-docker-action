@@ -22,9 +22,10 @@ This action aims to normalize the build phase. A secondary goal is to add some v
 + Logging to a custom repository
 + Publishing the built images 
 
-## Supported runners
+## Supported architecture
 
-This action is tested for ubuntu-latest. It does not work on windows or macOS runners.
+This action is tested on ubuntu-latest and windows-latest.
+**NB:** It is not possible to cross-build images, e.g. a windows runner can only build windows-based images.
 
 ## Usage
 ```yaml
