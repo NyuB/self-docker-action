@@ -1,2 +1,2 @@
 FROM  mcr.microsoft.com/windows/servercore:ltsc2022
-ENV KEY=
+ENV KEY=VALUE
