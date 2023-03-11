@@ -21,6 +21,11 @@ inputs:
   image-tag:
     description: 'Image tag the built image will be named <image-name>:<image-tag>'
     required: true
+  
+  structure-test-file:
+    description: '(optional) Config file to use with container-structure-test. If left empty no test will be performed'
+    required: false
+    default: ''
 
 runs:
   using: 'node16'

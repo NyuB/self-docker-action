@@ -27,6 +27,14 @@ jobs:
 
       - name: Run without-dockerfile
         run: docker run --rm without:dockerfile cat bravo.txt
+
+      - name: Build with structure test validation
+        uses: ./
+        with:
+          build-dir: ./tests/structure-test
+          image-name: structure
+          image-tag: test
+          structure-test-file: ./tests/structure-test/test.yaml
   
   test-windows:
     runs-on: windows-latest
@@ -41,6 +49,14 @@ jobs:
           image-tag: test
       - name: Run windows container
         run: docker run --rm win:test echo ok
-      
+
+      - name: Build with structure test validation
+        uses: ./
+        with:
+          build-dir: ./tests/structure-test
+          dockerfile-path: ./tests/structure-test/Dockerfile.windows
+          image-name: structure
+          image-tag: test
+          structure-test-file: ./tests/structure-test/test.yaml
           
            
